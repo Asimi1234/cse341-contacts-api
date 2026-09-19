@@ -44,15 +44,10 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // Use contacts routes
 app.use('/api/contacts', contactsRoutes);
 
-async function startServer() {
-  const connected = await connectDB();
-  if (connected) {
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-    });
-  } else {
-    console.error('Failed to start server');
-  }
-}
+// Always bind the port so the app (and /api-docs) stays up even if the
+// database is briefly unavailable. The DB connects in the background.
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
 
-startServer();
+connectDB();
