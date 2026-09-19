@@ -1,5 +1,70 @@
-### Get all contacts
+### ---------- LOCAL ----------
+
+### Get all contacts (LOCAL)
 GET http://localhost:3000/api/contacts
 
-### Get single contact (replace ID with actual contact ID from your database)
+### Get single contact (LOCAL)
 GET http://localhost:3000/api/contacts/6a9ddc4ca9d4823c83313355
+
+### Create a contact (LOCAL)
+POST http://localhost:3000/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "favoriteColor": "green",
+  "birthday": "1992-05-14"
+}
+
+### Update a contact (LOCAL) - replace the id with one from GET all
+PUT http://localhost:3000/api/contacts/PUT_ID_HERE
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith-Updated",
+  "email": "jane.updated@example.com",
+  "favoriteColor": "purple",
+  "birthday": "1992-05-14"
+}
+
+### Delete a contact (LOCAL) - replace the id with one from GET all
+DELETE http://localhost:3000/api/contacts/PUT_ID_HERE
+
+
+### ---------- RENDER (published) ----------
+
+### Get all contacts (RENDER)
+GET https://cse341-contacts-api-l034.onrender.com/api/contacts
+
+### Get single contact (RENDER)
+GET https://cse341-contacts-api-l034.onrender.com/api/contacts/6a9ddc4ca9d4823c83313355
+
+### Create a contact (RENDER)
+POST https://cse341-contacts-api-l034.onrender.com/api/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith",
+  "email": "jane.smith@example.com",
+  "favoriteColor": "green",
+  "birthday": "1992-05-14"
+}
+
+### Update a contact (RENDER) - replace the id with one from GET all
+PUT https://cse341-contacts-api-l034.onrender.com/api/contacts/PUT_ID_HERE
+Content-Type: application/json
+
+{
+  "firstName": "Jane",
+  "lastName": "Smith-Updated",
+  "email": "jane.updated@example.com",
+  "favoriteColor": "purple",
+  "birthday": "1992-05-14"
+}
+
+### Delete a contact (RENDER) - replace the id with one from GET all
+DELETE https://cse341-contacts-api-l034.onrender.com/api/contacts/PUT_ID_HERE

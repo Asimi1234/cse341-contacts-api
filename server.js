@@ -2,6 +2,9 @@ const express = require('express');
 const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const contactsRoutes = require('./routes/contacts');
@@ -34,6 +37,9 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   res.send('API is running');
 });
+
+// Swagger interactive documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Use contacts routes
 app.use('/api/contacts', contactsRoutes);
